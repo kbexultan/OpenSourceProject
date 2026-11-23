@@ -49,14 +49,14 @@ uv --version
 ### 2. Clone the project
 
 ```bash
-git clone https://github.com/kbexultan/Saveat.git
-cd Saveat
+git clone https://github.com/kbexultan/OpenSourceProject.git
+cd OpenSourceProject
 ```
 
 Project structure:
 
 ```
-Saveat/
+OpenSourceProject/
 ├── backend/
 ├── frontend/
 ├── mobile/
@@ -69,7 +69,7 @@ Files with private data (database access, JWT secret, backend URL) are not store
 **File 1:** `backend/.env`
 
 ```
-Saveat/
+OpenSourceProject/
 └── backend/
     ├── app/
     ├── alembic/
@@ -81,7 +81,7 @@ Saveat/
 **File 2:** `frontend/.env.local`
 
 ```
-Saveat/
+OpenSourceProject/
 └── frontend/
     ├── app/
     ├── components/
@@ -137,21 +137,21 @@ You need two terminals (three with the mobile app).
 Terminal 1, backend:
 
 ```bash
-cd Saveat/backend
+cd OpenSourceProject/backend
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
 Terminal 2, frontend:
 
 ```bash
-cd Saveat/frontend
+cd OpenSourceProject/frontend
 npm run dev -- -p 3001
 ```
 
 Terminal 3, mobile (optional):
 
 ```bash
-cd Saveat/mobile
+cd OpenSourceProject/mobile
 npx expo start
 ```
 
@@ -164,15 +164,15 @@ Addresses:
 ### 7. First run on Windows (PowerShell)
 
 ```powershell
-git clone https://github.com/kbexultan/Saveat.git
-cd Saveat
+git clone https://github.com/kbexultan/OpenSourceProject.git
+cd OpenSourceProject
 ```
 
 Put the environment files in place:
 
 ```
-.env       -> Saveat/backend/.env
-.env.local -> Saveat/frontend/.env.local
+.env       -> OpenSourceProject/backend/.env
+.env.local -> OpenSourceProject/frontend/.env.local
 ```
 
 Backend:
@@ -187,7 +187,7 @@ uv run uvicorn app.main:app --reload --port 8001
 Open a second PowerShell window:
 
 ```powershell
-cd path\to\Saveat\frontend
+cd path\to\OpenSourceProject\frontend
 npm install
 npm run dev -- -p 3001
 ```
@@ -197,15 +197,15 @@ Open: http://localhost:3001
 ### 8. First run on macOS (Terminal)
 
 ```bash
-git clone https://github.com/kbexultan/Saveat.git
-cd Saveat
+git clone https://github.com/kbexultan/OpenSourceProject.git
+cd OpenSourceProject
 ```
 
 Put the environment files in place:
 
 ```
-.env       -> Saveat/backend/.env
-.env.local -> Saveat/frontend/.env.local
+.env       -> OpenSourceProject/backend/.env
+.env.local -> OpenSourceProject/frontend/.env.local
 ```
 
 Backend:
@@ -220,7 +220,7 @@ uv run uvicorn app.main:app --reload --port 8001
 Open a second Terminal tab:
 
 ```bash
-cd /path/to/Saveat/frontend
+cd /path/to/OpenSourceProject/frontend
 npm install
 npm run dev -- -p 3001
 ```
@@ -237,16 +237,16 @@ Check: `uv --version`
 Check `node --version` and `npm --version`. If the commands do not work, install Node.js, then restart VS Code or the terminal.
 
 ### 11. Troubleshooting
-**Backend does not start.** Make sure you are in `Saveat/backend`, then run:
+**Backend does not start.** Make sure you are in `OpenSourceProject/backend`, then run:
 
 ```bash
 uv sync
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-**Database connection error.** Check that the environment file is at `Saveat/backend/.env`, not at `Saveat/.env`. If the file is in the right place and the database still does not connect, contact the project maintainer. Never send secrets in a public chat or push them to GitHub.
+**Database connection error.** Check that the environment file is at `OpenSourceProject/backend/.env`, not at `OpenSourceProject/.env`. If the file is in the right place and the database still does not connect, contact the project maintainer. Never send secrets in a public chat or push them to GitHub.
 
-**Frontend cannot reach the backend.** Check that the backend is running at http://127.0.0.1:8001 and that `Saveat/frontend/.env.local` is inside the `frontend` folder. After changing `.env.local`, stop the frontend with `Ctrl + C` and start it again:
+**Frontend cannot reach the backend.** Check that the backend is running at http://127.0.0.1:8001 and that `OpenSourceProject/frontend/.env.local` is inside the `frontend` folder. After changing `.env.local`, stop the frontend with `Ctrl + C` and start it again:
 
 ```bash
 npm run dev -- -p 3001
@@ -343,14 +343,14 @@ React Native ┘
 Install:
 
 ```bash
-cd Saveat/mobile
+cd OpenSourceProject/mobile
 npm install
 ```
 
 Run:
 
 ```bash
-cd Saveat/mobile
+cd OpenSourceProject/mobile
 npx expo start
 ```
 
@@ -362,7 +362,7 @@ Then:
 **Backend address for the phone.** Copy the example environment file:
 
 ```bash
-cd Saveat/mobile
+cd OpenSourceProject/mobile
 cp .env.example .env
 ```
 
@@ -379,7 +379,7 @@ On a real phone `127.0.0.1` does not work, because it is the phone's own address
 For the phone to reach the backend, start it not only on localhost:
 
 ```bash
-cd Saveat/backend
+cd OpenSourceProject/backend
 uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
