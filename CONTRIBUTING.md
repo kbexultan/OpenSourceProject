@@ -1,59 +1,83 @@
-Contributing to SAVEAT
+# Privacy Policy: SAVEAT
 
-Thank you for your interest in contributing to SAVEAT! Every bug report, idea, and pull request helps make the project better.
+## 1. Overview
 
-How to Contribute
-Fork the repository.
-Clone your fork and create a new branch from main:
-bash
-git checkout -b feature/short-description
-Make your changes and test them locally.
-Commit your changes with a clear message.
-Push the branch to your fork.
-Open a Pull Request to main and describe what you changed and why.
-Project Structure
-backend/: server-side application and database logic.
-frontend/: web application.
-mobile/: mobile application.
+SAVEAT takes user privacy seriously. This policy describes what personal data the app collects, how it is used, and how it is kept safe. We want the service to be secure and transparent for everyone.
 
-Please keep your changes within the relevant part of the project and follow the existing structure.
+## 2. Data We Collect
 
-Local Setup
+Depending on which features you use, SAVEAT may process:
 
-Each part of the project has its own setup steps, described in the README. Private settings (database credentials, JWT secrets, API keys) belong in environment variables. Never commit your .env files.
+- Account details, such as your name and email address.
+- Login credentials required for authentication.
+- Food-related data that you add yourself.
+- Your app settings and preferences.
+- Technical data needed to run and improve the app.
 
-Code Guidelines
-Write clean, readable code.
-Follow the existing code style and project structure.
-Use clear, descriptive names for variables and functions.
-Add or update tests when your change affects behavior.
-Update the documentation if needed.
-Never upload passwords, API keys, tokens, or private environment files.
-Branch and Commit Messages
-Branch names: feature/..., fix/..., docs/....
-Write commit messages in the imperative mood, for example Fix cart restoration bug or Add food expiry filter.
-Keep each commit focused on one change.
-Pull Request Checklist
+We try to collect only what the app needs in order to function.
 
-Before submitting, please make sure that:
+## 3. Purpose of Data Use
 
-The code runs and the tests pass.
-The change is focused and does not include unrelated edits.
-No secrets or private files are included.
-Documentation is updated where necessary.
-Reporting Issues
+Your data is used to:
 
-Found a bug or have an idea? Open an Issue in the GitHub repository. For bugs, please include:
+- Set up and maintain your account.
+- Deliver SAVEAT's core functionality.
+- Store and organize your food-related data.
+- Make the app faster and easier to use.
+- Keep accounts secure and block unauthorized access.
 
-steps to reproduce,
-expected and actual behavior,
-your environment (OS, browser or device, app version) and screenshots if possible.
-Code of Conduct
+We do not plan to sell your personal data to third parties.
 
-All contributors must follow our Code of Conduct.
+## 4. Storage and Security
 
-License
+Application data is stored in a PostgreSQL database.
 
-By contributing, you agree that your contributions will be licensed under the project's LICENSE.
+Sensitive configuration, such as database credentials and JWT secrets, is kept in environment variables and must never be published in the GitHub repository.
 
-Thank you for helping improve SAVEAT!
+To protect your information, we rely on:
+
+- Secure authentication.
+- Strong password hashing.
+- Limited access to private configuration.
+- Careful handling of authentication tokens.
+- Ongoing review and improvement of our security practices.
+
+## 5. Sharing of Data
+
+We do not plan to pass your personal data to third parties, except when it is needed to run the service, required by law, or approved by you.
+
+If the app uses external services, we recommend checking their own privacy policies.
+
+## 6. Retention and Deletion
+
+Personal data should be kept only as long as it is needed to provide the service.
+
+You can contact the project maintainers to request access to your data or its deletion.
+
+## 7. Your Rights
+
+You have the right to:
+
+- Know what data is collected.
+- Request access to your personal data.
+- Ask for incorrect data to be corrected.
+- Ask for your data to be deleted.
+- Raise questions about privacy and data security.
+
+## 8. Children
+
+SAVEAT is not intended to knowingly collect personal data from children without proper consent.
+
+## 9. Policy Updates
+
+We may revise this policy whenever the app or its data practices change. The current version is always available in this repository.
+
+## 10. Contact Us
+
+For any questions about this policy, reach out to the SAVEAT maintainers via the GitHub repository:
+
+https://github.com/kbexultan/OpenSourceProject
+
+---
+
+**Last updated:** November 2026
