@@ -1,88 +1,76 @@
-///
-# Privacy Policy — SAVEAT
+Privacy Policy: SAVEAT
+1. Overview
 
-## 1. Introduction
+SAVEAT takes user privacy seriously. This policy describes what personal data the app collects, how it is used, and how it is kept safe. We want the service to be secure and transparent for everyone.
 
-SAVEAT respects the privacy of its users. This document explains how the application collects, uses, stores, and protects personal information.
+2. Data We Collect
 
-Our goal is to provide a safe and transparent service for everyone.
+Depending on which features you use, SAVEAT may process:
 
-## 2. Information We Collect
+Account details, such as your name and email address.
+Login credentials required for authentication.
+Food-related data that you add yourself.
+Your app settings and preferences.
+Technical data needed to run and improve the app.
 
-Depending on the features used, SAVEAT may process the following information:
+We try to collect only what the app needs in order to function.
 
-- Account information, such as name and email address.
-- Authentication information needed to log in.
-- Food-related information added by users.
-- Application settings and preferences.
-- Technical information needed to operate and improve the application.
+3. Purpose of Data Use
 
-We aim to collect only the information necessary for the application to work.
+Your data is used to:
 
-## 3. How We Use Information
+Set up and maintain your account.
+Deliver SAVEAT's core functionality.
+Store and organize your food-related data.
+Make the app faster and easier to use.
+Keep accounts secure and block unauthorized access.
 
-We use information to:
+We do not plan to sell your personal data to third parties.
 
-- Create and manage user accounts.
-- Provide the main features of SAVEAT.
-- Store and manage food-related information.
-- Improve application performance and usability.
-- Protect accounts and prevent unauthorized access.
+4. Storage and Security
 
-We do not intend to sell personal information to third parties.
+Application data is stored in a PostgreSQL database.
 
-## 4. Data Storage and Security
+Sensitive configuration, such as database credentials and JWT secrets, is kept in environment variables and must never be published in the GitHub repository.
 
-SAVEAT uses PostgreSQL to store application data.
+To protect your information, we rely on:
 
-The project uses environment variables for private configuration, such as database credentials and JWT secrets. These values should never be published in the GitHub repository.
+Secure authentication.
+Strong password hashing.
+Limited access to private configuration.
+Careful handling of authentication tokens.
+Ongoing review and improvement of our security practices.
+5. Sharing of Data
 
-We aim to protect user information through:
+We do not plan to pass your personal data to third parties, except when it is needed to run the service, required by law, or approved by you.
 
-- Secure authentication.
-- Password protection using secure password hashing.
-- Restricted access to private configuration.
-- Safe handling of authentication tokens.
-- Regular review and improvement of security practices.
+If the app uses external services, we recommend checking their own privacy policies.
 
-## 5. Data Sharing
+6. Retention and Deletion
 
-SAVEAT does not intend to share personal information with third parties unless it is necessary to provide the service, required by law, or authorized by the user.
+Personal data should be kept only as long as it is needed to provide the service.
 
-Any external services used by the application should be reviewed to understand their privacy practices.
+You can contact the project maintainers to request access to your data or its deletion.
 
-## 6. Data Retention and Deletion
+7. Your Rights
 
-Personal information should only be stored for as long as it is needed to provide the service.
+You have the right to:
 
-Users should be able to contact the project maintainers to request access to or deletion of their personal information.
+Know what data is collected.
+Request access to your personal data.
+Ask for incorrect data to be corrected.
+Ask for your data to be deleted.
+Raise questions about privacy and data security.
+8. Children
 
-## 7. User Rights
+SAVEAT is not intended to knowingly collect personal data from children without proper consent.
 
-Users should have the right to:
+9. Policy Updates
 
-- Understand what information is collected.
-- Request access to their personal information.
-- Request correction of incorrect information.
-- Request deletion of their information.
-- Ask questions about privacy and data security.
+We may revise this policy whenever the app or its data practices change. The current version is always available in this repository.
 
-## 8. Children's Privacy
+10. Contact Us
 
-SAVEAT is not designed to knowingly collect personal information from children without appropriate consent.
-
-## 9. Changes to This Policy
-
-This Privacy Policy may be updated when the application or its data practices change.
-
-The latest version will always be available in this repository.
-
-## 10. Contact
-
-If you have questions about this Privacy Policy, please contact the SAVEAT project maintainers through the GitHub repository:
+For any questions about this policy, reach out to the SAVEAT maintainers via the GitHub repository:
 
 https://github.com/kbexultan/OpenSourceProject
-
----
-
-**Last updated:** November 2026
