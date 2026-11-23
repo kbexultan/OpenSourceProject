@@ -37,10 +37,10 @@ Pull Request Checklist
 
 Before submitting, please make sure that:
 
-[ ] The code runs and the tests pass.
-[ ] The change is focused and does not include unrelated edits.
-[ ] No secrets or private files are included.
-[ ] Documentation is updated where necessary.
+The code runs and the tests pass.
+The change is focused and does not include unrelated edits.
+No secrets or private files are included.
+Documentation is updated where necessary.
 Reporting Issues
 
 Found a bug or have an idea? Open an Issue in the GitHub repository. For bugs, please include:
