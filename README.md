@@ -1,49 +1,42 @@
-## Project Documentation
+# SAVEAT
+Save food. Save money.
 
-### About SAVEAT
-SAVEAT is an application designed to help people save food and money. Its goal is to encourage responsible food consumption and reduce food waste.
+SAVEAT is [one sentence: what the app does, e.g. "a platform that helps people buy surplus food at a discount"] for [who uses it: customers, shops, cafes].
 
-### Project Structure
-- `backend/` — server-side application and business logic.
-- `frontend/` — web application.
-- `mobile/` — mobile application.
+## Sustainable Development Goal
+SAVEAT supports SDG 12 (Responsible Consumption and Production), target 12.3: reducing food waste. [One or two sentences in your own words: how exactly the app reduces food waste.]
 
-### Technologies
-The project uses technologies such as Python, Node.js, PostgreSQL, Next.js, and React Native.
+## Platform independence
+SAVEAT is built with open technologies: Next.js (web), React Native with Expo (mobile), FastAPI (backend) and PostgreSQL (database). The project can run locally with Docker (see `docker-compose.test.yml`), so it does not depend on one proprietary platform or cloud provider.
 
-### Getting Started
-1. Clone the repository.
-2. Open the required project folder.
-3. Install the dependencies.
-4. Configure the environment variables.
-5. Start the application by following the instructions for each component.
+## Documentation
+- Setup guide: see "How to run the project" below
+- User guide: see "How to use SAVEAT" below
+- Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Code of Conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- Privacy: [PRIVACY.md](PRIVACY.md)
+- License: MIT, see [LICENSE](LICENSE)
+- Ownership: [OWNERSHIP.md](OWNERSHIP.md)
 
-### Contribution
-Developers who want to contribute should read [CONTRIBUTING.md](CONTRIBUTING.md).
-
-### Code of Conduct
-All contributors should follow our [Code of Conduct](CODE_OF_CONDUCT.md).
-
-### License
-This project is distributed under the MIT License. See the [LICENSE](LICENSE) file.
-
-# SAVEAT — как запустить проект
-
-Этот файл для команды SAVEAT.  
-Здесь написано, что установить, куда положить креды и какие команды запустить.
+## How to use SAVEAT
+1. [Step 1, e.g. open the website and create an account]
+2. [Step 2, e.g. browse available food offers]
+3. [Step 3, e.g. add items to the cart and place an order]
+4. [Step 4, e.g. pick up the order]
 
 ---
 
-## 1. Что нужно установить
+## How to run the project
 
-Перед запуском проекта должны быть установлены:
+This section explains what to install, where to put the configuration files and which commands to run.
 
+### 1. Requirements
 - Git
 - Node.js 20+
 - Python 3.13+
 - uv
 
-Проверить можно командами:
+Check the installation:
 
 ```bash
 git --version
@@ -53,278 +46,133 @@ python --version
 uv --version
 ```
 
----
-
-# 2. Скачать проект
-
-Открой терминал и выполни:
+### 2. Clone the project
 
 ```bash
 git clone https://github.com/kbexultan/Saveat.git
 cd Saveat
 ```
 
-После этого структура будет примерно такой:
+Project structure:
 
-```text
+```
 Saveat/
 ├── backend/
 ├── frontend/
+├── mobile/
 └── README.md
 ```
 
----
+### 3. Environment files
+Files with private data (database access, JWT secret, backend URL) are not stored in GitHub. Create them from the examples and ask the project maintainer for the real values.
 
-# 3. ВАЖНО — файлы с кредами от Бекса
+**File 1:** `backend/.env`
 
-Некоторых файлов специально НЕТ в GitHub, потому что внутри находятся приватные данные.
-
-Бекс отдельно скинет тебе файлы с кредами.
-
-## Куда положить скачанные файлы от Бекса
-
-### Файл №1
-
-Скачанный файл:
-
-```text
-.env
 ```
-
-положить сюда:
-
-```text
-Saveat/backend/.env
-```
-
-То есть должно получиться:
-
-```text
 Saveat/
 └── backend/
     ├── app/
     ├── alembic/
-    ├── .env          ← СЮДА ФАЙЛ ОТ БЕКСА
+    ├── .env          <- put the file here
     ├── pyproject.toml
     └── uv.lock
 ```
 
----
+**File 2:** `frontend/.env.local`
 
-### Файл №2
-
-Скачанный файл:
-
-```text
-.env.local
 ```
-
-положить сюда:
-
-```text
-Saveat/frontend/.env.local
-```
-
-То есть:
-
-```text
 Saveat/
 └── frontend/
     ├── app/
     ├── components/
-    ├── .env.local    ← СЮДА ФАЙЛ ОТ БЕКСА
+    ├── .env.local    <- put the file here
     ├── package.json
     └── package-lock.json
 ```
 
----
-
-## Почему этих файлов нет в GitHub
-
-Потому что внутри могут находиться:
-
-- доступ к Supabase/PostgreSQL
-- JWT secret
-- backend URL
-- другие приватные настройки
-
-Эти файлы НЕ надо коммитить и пушить в GitHub.
-
-Проверка:
+These files may contain access to Supabase/PostgreSQL, the JWT secret, the backend URL and other private settings. Never commit or push them to GitHub. Check that they are ignored:
 
 ```bash
 git check-ignore -v backend/.env
 git check-ignore -v frontend/.env.local
 ```
 
----
-
-# 4. Установка Backend
-
-Перейди в backend:
+### 4. Backend
+Install dependencies and apply database migrations:
 
 ```bash
 cd backend
-```
-
-Установи Python-зависимости:
-
-```bash
 uv sync
-```
-
-После этого примени миграции базы данных:
-
-```bash
 uv run alembic upgrade head
 ```
 
----
-
-# 5. Запуск Backend
-
-Находясь в папке:
-
-```text
-Saveat/backend
-```
-
-запусти:
+Run the backend (from the `backend` folder):
 
 ```bash
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-Если всё нормально, backend будет доступен здесь:
+- Backend: http://127.0.0.1:8001
+- API docs (Swagger): http://127.0.0.1:8001/docs
+- Database check: http://127.0.0.1:8001/health/database
 
-```text
-http://127.0.0.1:8001
-```
+Keep this terminal open.
 
-Swagger:
-
-```text
-http://127.0.0.1:8001/docs
-```
-
-Проверка базы:
-
-```text
-http://127.0.0.1:8001/health/database
-```
-
-Backend-терминал НЕ закрывай.
-
----
-
-# 6. Установка Frontend
-
-Открой второй терминал.
-
-Перейди в frontend.
-
-Если ты находишься в корне проекта:
+### 5. Frontend
+Open a second terminal.
 
 ```bash
 cd frontend
-```
-
-Если ты сейчас находишься в `backend`, сначала:
-
-```bash
-cd ..
-cd frontend
-```
-
-Установи зависимости:
-
-```bash
 npm install
-```
-
----
-
-# 7. Запуск Frontend
-
-Находясь в:
-
-```text
-Saveat/frontend
-```
-
-запусти:
-
-```bash
 npm run dev -- -p 3001
 ```
 
-Открой сайт:
+Open: http://localhost:3001
 
-```text
-http://localhost:3001
-```
+Keep this terminal open too.
 
-Frontend-терминал тоже оставь открытым.
+### 6. What should be running
+You need two terminals (three with the mobile app).
 
----
-
-# 8. Как должно быть запущено
-
-Нужно два терминала.
-
-## Терминал 1 — Backend
+Terminal 1, backend:
 
 ```bash
 cd Saveat/backend
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-## Терминал 2 — Frontend
+Terminal 2, frontend:
 
 ```bash
 cd Saveat/frontend
 npm run dev -- -p 3001
 ```
 
-## Терминал 3 — Mobile (по желанию)
+Terminal 3, mobile (optional):
 
 ```bash
 cd Saveat/mobile
 npx expo start
 ```
 
-После этого:
+Addresses:
+- Frontend: http://localhost:3001
+- Backend: http://127.0.0.1:8001
+- Swagger: http://127.0.0.1:8001/docs
+- Mobile (Metro): http://localhost:8081
 
-```text
-Frontend:
-http://localhost:3001
-
-Backend:
-http://127.0.0.1:8001
-
-Swagger:
-http://127.0.0.1:8001/docs
-
-Mobile (Metro):
-http://localhost:8081
-```
-
----
-
-# 9. Первый запуск — Windows
-
-Пример для PowerShell:
+### 7. First run on Windows (PowerShell)
 
 ```powershell
 git clone https://github.com/kbexultan/Saveat.git
 cd Saveat
 ```
 
-Потом положи скачанные файлы от Бекса:
+Put the environment files in place:
 
-```text
-.env       → Saveat/backend/.env
-.env.local → Saveat/frontend/.env.local
+```
+.env       -> Saveat/backend/.env
+.env.local -> Saveat/frontend/.env.local
 ```
 
 Backend:
@@ -336,36 +184,28 @@ uv run alembic upgrade head
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-Открой второй PowerShell:
+Open a second PowerShell window:
 
 ```powershell
-cd путь\к\Saveat\frontend
+cd path\to\Saveat\frontend
 npm install
 npm run dev -- -p 3001
 ```
 
-Открыть:
+Open: http://localhost:3001
 
-```text
-http://localhost:3001
-```
-
----
-
-# 10. Первый запуск — macOS
-
-В Terminal:
+### 8. First run on macOS (Terminal)
 
 ```bash
 git clone https://github.com/kbexultan/Saveat.git
 cd Saveat
 ```
 
-Потом положи скачанные файлы от Бекса:
+Put the environment files in place:
 
-```text
-.env       → Saveat/backend/.env
-.env.local → Saveat/frontend/.env.local
+```
+.env       -> Saveat/backend/.env
+.env.local -> Saveat/frontend/.env.local
 ```
 
 Backend:
@@ -377,342 +217,194 @@ uv run alembic upgrade head
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-Открой вторую вкладку Terminal:
+Open a second Terminal tab:
 
 ```bash
-cd /путь/к/Saveat/frontend
+cd /path/to/Saveat/frontend
 npm install
 npm run dev -- -p 3001
 ```
 
-Открыть:
+Open: http://localhost:3001
 
-```text
-http://localhost:3001
-```
+### 9. Installing uv
+- Windows: `winget install --id=astral-sh.uv -e` (then restart the terminal)
+- macOS (with Homebrew): `brew install uv`
 
----
+Check: `uv --version`
 
-# 11. Если `uv` не установлен
+### 10. If npm does not work
+Check `node --version` and `npm --version`. If the commands do not work, install Node.js, then restart VS Code or the terminal.
 
-## Windows
-
-```powershell
-winget install --id=astral-sh.uv -e
-```
-
-После установки перезапусти терминал.
-
-Проверка:
-
-```powershell
-uv --version
-```
-
-## macOS
-
-Если установлен Homebrew:
-
-```bash
-brew install uv
-```
-
-Проверка:
-
-```bash
-uv --version
-```
-
----
-
-# 12. Если `npm` не работает
-
-Проверь:
-
-```bash
-node --version
-npm --version
-```
-
-Если команды не работают — установи Node.js.
-
-После установки перезапусти VS Code или Terminal.
-
----
-
-# 13. Если backend не запускается
-
-Убедись, что ты находишься именно здесь:
-
-```text
-Saveat/backend
-```
-
-Потом:
+### 11. Troubleshooting
+**Backend does not start.** Make sure you are in `Saveat/backend`, then run:
 
 ```bash
 uv sync
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
----
+**Database connection error.** Check that the environment file is at `Saveat/backend/.env`, not at `Saveat/.env`. If the file is in the right place and the database still does not connect, contact the project maintainer. Never send secrets in a public chat or push them to GitHub.
 
-# 14. Если ошибка подключения к базе
-
-Проверь, что файл от Бекса лежит именно здесь:
-
-```text
-Saveat/backend/.env
-```
-
-Не здесь:
-
-```text
-Saveat/.env
-```
-
-Нужный путь:
-
-```text
-Saveat/backend/.env
-```
-
-Если файл лежит правильно, но база всё равно не подключается — напиши Бексу.
-
-Не отправляй креды в общий чат и не пушь их в GitHub.
-
----
-
-# 15. Если frontend не видит backend
-
-Проверь, что backend запущен:
-
-```text
-http://127.0.0.1:8001
-```
-
-Проверь, что файл:
-
-```text
-Saveat/frontend/.env.local
-```
-
-находится именно во frontend.
-
-После изменения `.env.local` frontend нужно перезапустить:
-
-```text
-Ctrl + C
-```
-
-потом:
+**Frontend cannot reach the backend.** Check that the backend is running at http://127.0.0.1:8001 and that `Saveat/frontend/.env.local` is inside the `frontend` folder. After changing `.env.local`, stop the frontend with `Ctrl + C` and start it again:
 
 ```bash
 npm run dev -- -p 3001
 ```
 
----
+**Next.js behaves strangely after an update.** Stop the frontend with `Ctrl + C`, delete the `.next` folder and start again.
 
-# 16. Если Next.js странно работает после обновления
-
-Останови frontend:
-
-```text
-Ctrl + C
-```
-
-## Windows PowerShell
+Windows PowerShell:
 
 ```powershell
 Remove-Item -Recurse -Force .next
 npm run dev -- -p 3001
 ```
 
-## macOS
+macOS:
 
 ```bash
 rm -rf .next
 npm run dev -- -p 3001
 ```
 
----
-
-# 17. Как получить последние изменения команды
-
-Перед началом работы:
+### 12. Getting the latest changes
+Before you start working:
 
 ```bash
 git pull origin main
 ```
 
-Если изменились зависимости:
-
-Backend:
+If dependencies changed:
 
 ```bash
 cd backend
 uv sync
 ```
 
-Frontend:
-
 ```bash
 cd frontend
 npm install
 ```
 
-Если появились новые миграции:
+If there are new migrations:
 
 ```bash
 cd backend
 uv run alembic upgrade head
 ```
 
----
-
-# 18. Как отправить свои изменения в GitHub
-
-Из корня проекта:
+### 13. Sending your changes to GitHub
+From the project root (see also [CONTRIBUTING.md](CONTRIBUTING.md)):
 
 ```bash
 git status
 git add .
 git status
-git commit -m "Описание изменений"
+git commit -m "Describe your changes"
 git push origin main
 ```
 
-Перед commit убедись, что среди изменений нет:
+Before committing, make sure these are not included:
+- `backend/.env`
+- `frontend/.env.local`
+- `backend/.venv`
+- `frontend/node_modules`
+- `frontend/.next`
 
-```text
-backend/.env
-frontend/.env.local
-backend/.venv
-frontend/node_modules
-frontend/.next
-```
+### 14. Quick start
+If the project is already cloned, the environment files are in place and dependencies are installed:
 
----
-
-# 19. Очень коротко
-
-Если проект уже скачан, креды от Бекса уже лежат на месте и зависимости установлены:
-
-## Backend
+Backend:
 
 ```bash
 cd backend
 uv run uvicorn app.main:app --reload --port 8001
 ```
 
-## Frontend
-
-В другом терминале:
+Frontend (in another terminal):
 
 ```bash
 cd frontend
 npm run dev -- -p 3001
 ```
 
-Открыть:
+Open: http://localhost:3001
 
-```text
-http://localhost:3001
+### 15. Mobile app (iOS / Android)
+The mobile app lives in the `mobile/` folder and is built with React Native + Expo. It is not a separate project: it uses the same backend, database, users and JWT as the website.
+
 ```
-
----
-
-# 20. Мобильное приложение (iOS / Android)
-
-Мобильное приложение живёт в папке `mobile/` — это React Native + Expo.
-
-Оно **не отдельный проект**: работает с тем же backend, той же базой,
-теми же пользователями и тем же JWT, что и сайт.
-
-```text
 Next.js web ─┐
              ├─► FastAPI (backend) ─► PostgreSQL / Supabase
 React Native ┘
 ```
 
-## Установка
+Install:
 
 ```bash
 cd Saveat/mobile
 npm install
 ```
 
-## Запуск
+Run:
 
 ```bash
 cd Saveat/mobile
 npx expo start
 ```
 
-Дальше:
+Then:
+- press `a` for the Android emulator
+- press `i` for the iOS simulator (macOS only)
+- scan the QR code with the Expo Go app on a real phone
 
-- нажать `a` — Android-эмулятор
-- нажать `i` — iOS-симулятор (только macOS)
-- отсканировать QR приложением **Expo Go** — реальный телефон
-
-## Адрес backend для телефона
-
-Скопируйте пример окружения:
+**Backend address for the phone.** Copy the example environment file:
 
 ```bash
 cd Saveat/mobile
 cp .env.example .env
 ```
 
-И укажите адрес API:
+Set the API address in `EXPO_PUBLIC_API_URL`:
 
-| Где запускаете | `EXPO_PUBLIC_API_URL` |
-| --- | --- |
-| iOS-симулятор на том же компьютере | `http://127.0.0.1:8001` |
-| Android-эмулятор | `http://10.0.2.2:8001` |
-| Реальный телефон в той же Wi-Fi | `http://<IP-компьютера>:8001` |
+| Where you run the app | EXPO_PUBLIC_API_URL |
+|---|---|
+| iOS simulator on the same computer | `http://127.0.0.1:8001` |
+| Android emulator | `http://10.0.2.2:8001` |
+| Real phone on the same Wi-Fi | `http://<computer-IP>:8001` |
 
-**Для реального телефона `127.0.0.1` не работает** — это адрес самого
-телефона. Нужен IP компьютера в локальной сети (`ipconfig` на Windows,
-`ifconfig` на macOS), например `http://192.168.1.50:8001`.
+On a real phone `127.0.0.1` does not work, because it is the phone's own address. Use your computer's IP in the local network (`ipconfig` on Windows, `ifconfig` on macOS), for example `http://192.168.1.50:8001`.
 
-Чтобы телефон видел backend, запускайте его не только на localhost:
+For the phone to reach the backend, start it not only on localhost:
 
 ```bash
 cd Saveat/backend
 uv run uvicorn app.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
-Подробности — в [`mobile/README.md`](mobile/README.md).
+More details: `mobile/README.md`.
 
----
+### 16. Checklist
+- [ ] Project cloned with Git
+- [ ] `backend/.env` is in place
+- [ ] `frontend/.env.local` is in place
+- [ ] `uv sync` done
+- [ ] `uv run alembic upgrade head` done
+- [ ] `npm install` done
+- [ ] Backend runs on port 8001
+- [ ] Frontend runs on port 3001
+- [ ] http://localhost:3001 opens
 
-# 21. Чек-лист
+If you work with the mobile app:
+- [ ] `npm install` done in `mobile/`
+- [ ] `mobile/.env` created from `mobile/.env.example`
+- [ ] `EXPO_PUBLIC_API_URL` points to the backend (for a phone, the computer's IP)
+- [ ] Backend started with `--host 0.0.0.0`
+- [ ] `npx expo start` works
 
-- [ ] Проект скачан через Git
-- [ ] `.env` от Бекса лежит в `backend/.env`
-- [ ] `.env.local` от Бекса лежит в `frontend/.env.local`
-- [ ] Выполнен `uv sync`
-- [ ] Выполнен `uv run alembic upgrade head`
-- [ ] Выполнен `npm install`
-- [ ] Backend запущен на `8001`
-- [ ] Frontend запущен на `3001`
-- [ ] Открываешь `http://localhost:3001`
-
-Если работаешь с мобильным приложением:
-
-- [ ] Выполнен `npm install` в `mobile/`
-- [ ] `mobile/.env` создан из `mobile/.env.example`
-- [ ] `EXPO_PUBLIC_API_URL` указывает на backend (для телефона — IP компьютера)
-- [ ] Backend запущен с `--host 0.0.0.0`
-- [ ] `npx expo start` работает
-
----
-
-# 22. Automated tests
-
-Backend tests use an isolated PostgreSQL in Docker and refuse to connect
-to Supabase or any other non-local database.
+### 17. Automated tests
+Backend tests use an isolated PostgreSQL in Docker and refuse to connect to Supabase or any other non-local database.
 
 ```bash
 docker compose -f docker-compose.test.yml up -d --wait
@@ -722,13 +414,10 @@ cd ../mobile && npm test
 docker compose -f docker-compose.test.yml down -v
 ```
 
-Details, safeguards and manual QA steps:
-[`backend/tests/README.md`](backend/tests/README.md).
+Details, safeguards and manual QA steps: `backend/tests/README.md`.
 
 ---
 
-# SAVEAT
+SAVEAT. Save food. Save money.
 
-**Save food. Save money.**
-
-Если проблема именно с кредами или доступом к базе — пиши Бексу.
+If you have a problem with database access or secrets, contact the project maintainer.
