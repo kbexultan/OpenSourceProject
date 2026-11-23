@@ -1,3 +1,32 @@
+## Project Documentation
+
+### About SAVEAT
+SAVEAT is an application designed to help people save food and money. Its goal is to encourage responsible food consumption and reduce food waste.
+
+### Project Structure
+- `backend/` — server-side application and business logic.
+- `frontend/` — web application.
+- `mobile/` — mobile application.
+
+### Technologies
+The project uses technologies such as Python, Node.js, PostgreSQL, Next.js, and React Native.
+
+### Getting Started
+1. Clone the repository.
+2. Open the required project folder.
+3. Install the dependencies.
+4. Configure the environment variables.
+5. Start the application by following the instructions for each component.
+
+### Contribution
+Developers who want to contribute should read [CONTRIBUTING.md](CONTRIBUTING.md).
+
+### Code of Conduct
+All contributors should follow our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+### License
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file.
+
 # SAVEAT — как запустить проект
 
 Этот файл для команды SAVEAT.  
