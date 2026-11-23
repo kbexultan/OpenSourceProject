@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-**[TEAM EMAIL]**, or privately to any team member listed in
+kalabaibeksh@gmail.com , or privately to any team member listed in
 [OWNERSHIP.md](OWNERSHIP.md).
 All complaints will be reviewed and investigated promptly and fairly.
 
