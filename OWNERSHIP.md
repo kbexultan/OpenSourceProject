@@ -1,27 +1,27 @@
-# Project Ownership
+Project Ownership
+Project Name
 
-## Project Name
 SAVEAT
 
-## Ownership
+Ownership
 
-SAVEAT is developed as a student team project. The project code and documentation are maintained by the project team.
+SAVEAT is a student team project. The team maintains the code and documentation together.
 
-The team members are responsible for developing, testing, documenting, and improving the application.
+Team members are responsible for building, testing, documenting, and improving the application.
 
 Team Members
-  1	Bexultan K	
-  2	Azizbek M	
-  3	Zhiger D	
-  4	Dulat K	
-  5	Yerassyl M	
-
-## Project Repository
+#	Name
+1	Bexultan Kalabay
+2	Azizbek Manarbekuly
+3	Zhiger Dinmukhamed
+4	Ashirali-Dulat Kopbergen
+5	Yerassyl Maitan
+Project Repository
 
 https://github.com/kbexultan/OpenSourceProject
 
-## Contributors
+Contributors
 
-The project contributors are listed in the GitHub repository commit history.
+All contributors are listed in the commit history of the GitHub repository.
 
-Any changes to project ownership or licensing should be agreed upon by the relevant contributors.
+Any change to project ownership or licensing must be agreed upon by the contributors concerned.
